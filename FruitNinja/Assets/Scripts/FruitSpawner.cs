@@ -24,7 +24,7 @@ public class FruitSpawner : MonoBehaviour
             int objectIndex = Random.Range(0, fruitToSpawn.Length);
             GameObject fruits = Instantiate(fruitToSpawn[objectIndex], t.transform.position, t.transform.rotation) as GameObject; // to add to a list to delete
             fruits.GetComponent<Rigidbody2D>().AddForce(t.transform.up * Random.Range(minForce,maxForce), ForceMode2D.Impulse);
-            Destroy(fruits, 5f);
+            Destroy(fruits.gameObject, 5f);
         }
     }
 }

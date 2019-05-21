@@ -19,11 +19,18 @@ public class FruitController : MonoBehaviour
         Destroy(slicedFruitInstance, 5f);
     }
 
-    void Update()
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        if (Input.anyKeyDown)
+        BladeController b = collider.GetComponent<BladeController>();
+        if (b)
         {
             CreateSlicedFruit();
+            FindObjectOfType<GameManager>().IncreaseScore();
         }
+        else
+        {
+            return;
+        }
+
     }
 }
