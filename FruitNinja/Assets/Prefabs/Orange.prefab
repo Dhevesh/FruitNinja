@@ -28,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7765862959797720454}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.23784494, y: 0.40348196, z: -0.6306596}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &7765862959798585734
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -100,7 +100,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &8360469799328593216
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -131,3 +131,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slicedFruitPrefab: {fileID: 1034279967651369139, guid: 9177e5b1ee69d274eb5cd04330581ee4,
     type: 3}
+  minExplosionForce: 300
+  maxExplosionForce: 800
+  points: 3

@@ -9,8 +9,8 @@ public class FruitSpawner : MonoBehaviour
     public Transform[] spawnPlaces;
     public float minWaitTime = 0.3f;
     public float maxWaitTime = 1f;
-    public float minForce = 10f;
-    public float maxForce = 15f;
+    public float minForce = 8f;
+    public float maxForce = 12f;
     void Start()
     {
         StartCoroutine("SpawnedFruits");
@@ -24,17 +24,22 @@ public class FruitSpawner : MonoBehaviour
             Transform t = spawnPlaces[Random.Range(0, spawnPlaces.Length)];
             int objProbability = Random.Range(0, 100);
             GameObject objToSpawn = null;
+
             if (objProbability < 10)
             {
                 objToSpawn = bomb;
             }
-            else
+            else if (objProbability > 20)
             {
                 objToSpawn = fruitToSpawn[Random.Range(0, fruitToSpawn.Length)];
             }
-            GameObject fruits = Instantiate(objToSpawn, t.transform.position, t.transform.rotation) as GameObject; // to add to a list to delete
-            fruits.GetComponent<Rigidbody2D>().AddForce(t.transform.up * Random.Range(minForce, maxForce), ForceMode2D.Impulse);
-            Destroy(fruits.gameObject, 5f);
+            if (objToSpawn != null)
+            {
+
+                GameObject fruits = Instantiate(objToSpawn, t.transform.position, t.transform.rotation) as GameObject; // to add to a list to delete
+                fruits.GetComponent<Rigidbody2D>().AddForce(t.transform.up * Random.Range(minForce, maxForce), ForceMode2D.Impulse);
+                Destroy(fruits.gameObject, 5f);
+            }
 
         }
     }

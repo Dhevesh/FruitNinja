@@ -1329,8 +1329,8 @@ MonoBehaviour:
   - {fileID: 183451640}
   minWaitTime: 0.3
   maxWaitTime: 1
-  minForce: 10
-  maxForce: 20
+  minForce: 8
+  maxForce: 12
 --- !u!4 &1748845757
 Transform:
   m_ObjectHideFlags: 0

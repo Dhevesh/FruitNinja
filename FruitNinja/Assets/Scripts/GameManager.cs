@@ -26,8 +26,8 @@ public class GameManager : MonoBehaviour
             time--;
             if (time == 0)
             {
-                OnBombHit();
-                time = 3000f;
+                GameOver();
+                //time = 3000f;
             }
             timeText.text = $"Time Remaining: {Mathf.RoundToInt((time / 100)).ToString()}s";
         }
@@ -39,9 +39,9 @@ public class GameManager : MonoBehaviour
         highScore = PlayerPrefs.GetInt("HighScore");
         highScoreText.text = $"Best: {highScore}";
     }
-    public void IncreaseScore()
+    public void IncreaseScore(int points)
     {
-        score++;
+        score += points;
         scoreText.text = $"Current Score: {score.ToString()}";
         if (score > highScore)
         {
@@ -50,9 +50,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void OnBombHit()
+    public void GameOver()
     {
         Time.timeScale = 0;
+        time = 0f;
+        timeText.text = $"Time Remaining: {Mathf.RoundToInt((time / 100)).ToString()}s";
         gameOverPanel.SetActive(true);
         gameOverScoreText.text = $"Score: {score}";
         gameOverHighScoreText.text = $"Best: {PlayerPrefs.GetInt("HighScore").ToString()}";
@@ -70,6 +72,5 @@ public class GameManager : MonoBehaviour
         }
         time = 3000f;
         Time.timeScale = 1;
-
     }
 }

@@ -9,7 +9,7 @@ public class BombController : MonoBehaviour
         BladeController b = collider.GetComponent<BladeController>();
         if (b)
         {
-            FindObjectOfType<GameManager>().OnBombHit();
+            FindObjectOfType<GameManager>().GameOver();
         }
         else
         {
